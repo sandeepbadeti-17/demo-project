@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import LoginPage from "./components/LoginPage";
+import Home from "./components/Home";
+import Update from "./components/Update";
+import AsOfDate from "./components/AsOfDate";
+import AuthContext from "./store/auth-context";
 
-function App() {
+export default function App() {
+  const authCtx = useContext(AuthContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        {authCtx.isLoggedin && <Route path="/home" element={<Home />} />}
+        {authCtx.isLoggedin && <Route path="/update" element={<Update />} />}
+        {authCtx.isLoggedin && (
+          <Route path="/asofdate" element={<AsOfDate />} />
+        )}
+        <Route path="*" element={<Navigate to={{ pathname: "/" }} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
