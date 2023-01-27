@@ -52,3 +52,11 @@
 .login_forgot {
   margin: 0.5rem 0;
 }
+
+/* My Portfolio */
+
+.myPortfolio{
+  position :fixed;
+  bottom: 3rem;
+  right: 3rem;
+}
