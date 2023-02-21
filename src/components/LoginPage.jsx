@@ -95,11 +95,11 @@ export default function LoginPage() {
           <img className="col-6 login_img" src={Coding} alt="" />
         </div>
       </div>
-      <a className="text-white text-decoration-none" href="https://sandeep-badeti.netlify.app/" target="_blank" rel='noopener noreferrer'>
+      {/* <a className="text-white text-decoration-none" href="https://sandeep-badeti.netlify.app/" target="_blank" rel='noopener noreferrer'>
       <button className="btn myPortfolio" >
         My Portfolio
       </button>
-        </a>
+        </a> */}
     </div>
   );
 }

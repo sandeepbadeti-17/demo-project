@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LoginPage from "./components/LoginPage";
 import Home from "./components/Home";
 import Update from "./components/Update";
+// import Update from './components/update/Update'
+// import Update from './components/testing/Update'
 import AsOfDate from "./components/AsOfDate";
 import AuthContext from "./store/auth-context";
 

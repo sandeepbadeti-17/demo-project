@@ -1,16 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../store/auth-context";
 import axios from "axios";
-import "../styles/update.css";
-import Table from "./Table";
-export default function Update() {
+import React, { useEffect, useState } from "react";
 
-//now try onclick push elements to array and use put method
-  const authCtx = useContext(AuthContext);
-  const [data, setData] = useState(null);
-  //get data
-  const getData = () => {
-  
+function Update() {
+  const [data, setData] = useState([]);
+
+
+   //get data
+   const getData = () => {
     axios
       .get("http://localhost:4000/data")
       .then((res) => {
@@ -22,77 +18,15 @@ export default function Update() {
       .catch((err) => console.error(err));
   };
 
+
   useEffect(() => {
     getData();
-    // console.log(posts)
   }, []);
 
-  const handelCheckBox = (event,id)=>{
-    setData(
-      data.map(row=>{
-        if(row.id === id){
-          return {
-            ...row,enabled:event.target.checked
-          }
-        }else{
-          return row
-        }
-      })
-    )
-  }
-
-  const handleOptionChange = (event,id)=>{
-    console.log(event.target.name,event.target.value)
-
-    setData(data.map(row=>{
-        if(row.id ===id ){
-          return{
-            ...row, [event.target.name]:event.target.value
-          }
-        }else{
-          return row
-        }})
-        )
-  }
-  const updateHandler = () => {
-    // console.log(data)
-    data.forEach(row=>{
-      if(row.enabled){
-       console.log(row)
-        axios
-        .put(`http://localhost:4000/data/${row.id}`, {...row, enabled:false})
-        .catch(err=>console.log(err))
-        getData()
-      }else{
-        console.log('nothing updated')
-      }
-    })
-
-    
-};
 
 
-  const addSkillsHandler = () => {
-    let add = {
-      empId: 1,
-      portfolio: "CCE",
-      empName: "RajTemp",
-      skillCategory: "Technology",
-      skill: "MySql",
-      certificationLevel: 1,
-      skillExperianace: 1,
-      expertRating: 1,
-      skillScore: 2.5,
-    };
-
-    axios
-      .post("http://localhost:4000/data/", add)
-      .then((res) => getData())
-      .catch((err) => console.log(err));
-  };
   return (
-    <div className="app">
-      <div className="container update">
+    <div className="container update">
         <div className="update_top_btn">
           <button className="update_btn btn">Customer Protfolio Name</button>
           <button className="update_btn btn">Emp ID</button>
@@ -119,12 +53,12 @@ export default function Update() {
             </thead>
             <tbody>
             
-              {data.map((row) => {
+              {data.map((ele) => {
                 return (
-                  <React.Fragment key={row.id}>
+                  <React.Fragment key={ele.id}>
                     <tr>
-                      <Table ele={row} handelCheckBox={handelCheckBox}
-                      checked={row.enabled}  id={row.id} handleOptionChange={handleOptionChange}  />     
+                      <Table ele={ele} setId={setId} dataArray={dataArray} setDataArray={setDataArray} setCertLevel={setCertLevel} setSkillExp={setSkillExp} setExpertRating={setExpertRating}/>
+                     
                     </tr>
                   </React.Fragment>
                 );
@@ -148,16 +82,10 @@ export default function Update() {
             </button>
             <button className="btn update_btn update_btn2 ">Download</button>
           </div>
-          <button
-            className=" btn update_btn update_logout"
-            onClick={() => {
-              authCtx.logout();
-            }}
-          >
-            Log Out
-          </button>
+        
         </div>
       </div>
-    </div>
-  );
+  )
 }
+
+export default Update

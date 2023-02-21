@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "empId": 1,
+      "portfolio": "CCE",
+      "empName": "RajTemp",
+      "skillCategory": "Technology",
+      "skill": "MySql",
+      "certificationLevel": "1",
+      "skillExperianace": "1",
+      "expertRating": "1",
+      "skillScore": 2.5,
+      "id": 1,
+      "enabled": false
+    },
+    {
+      "empId": 1,
+      "portfolio": "CCE",
+      "empName": "RajTemp",
+      "skillCategory": "Technology",
+      "skill": "MySql",
+      "certificationLevel": "1",
+      "skillExperianace": "2",
+      "expertRating": "3",
+      "skillScore": 2.5,
+      "id": 2,
+      "enabled": false
+    },
+    {
+      "empId": 1,
+      "portfolio": "CCE",
+      "empName": "RajTemp",
+      "skillCategory": "Technology",
+      "skill": "MySql",
+      "certificationLevel": "1",
+      "skillExperianace": "2",
+      "expertRating": "3",
+      "skillScore": 2.5,
+      "id": 4,
+      "enabled": false
+    },
+    {
+      "empId": 1,
+      "portfolio": "CCE",
+      "empName": "RajTemp",
+      "skillCategory": "Technology",
+      "skill": "MySql",
+      "certificationLevel": "1",
+      "skillExperianace": "2",
+      "expertRating": "3",
+      "skillScore": 2.5,
+      "id": 5,
+      "enabled": false
+    }
+  ]
+}
