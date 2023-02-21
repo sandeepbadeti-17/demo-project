@@ -12,7 +12,7 @@ export default function Update() {
   const getData = () => {
   
     axios
-      .get("http://localhost:4000/data")
+      .get("http://localhost:4001/data")
       .then((res) => {
         // console.log(res.data);
         setData(res.data);
@@ -60,15 +60,15 @@ export default function Update() {
       if(row.enabled){
        console.log(row)
         axios
-        .put(`http://localhost:4000/data/${row.id}`, {...row, enabled:false})
+        .put(`http://localhost:4001/data/${row.id}`, {...row, enabled:false})
         .catch(err=>console.log(err))
-        getData()
+        
       }else{
         console.log('nothing updated')
       }
     })
 
-    
+    getData()
 };
 
 
